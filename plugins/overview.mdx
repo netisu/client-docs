@@ -1,0 +1,25 @@
+---
+title: 'Overview'
+description: 'Cubern and Plugins'
+icon: 'seal-question'
+---
+
+Plugins are basically 3rd party plugins which start executing when the user manually tells the plugin to run. Plugins are used to add more functionality to the workshop. These plugins can be used to enhance the developing experience for developers making games on Cubern and also help learn how internally the workshop works.
+Plugins are sandboxed so they are safe to use. Even if the plugin attempts to add scripts, a permission popup will happen. Plugins are compulsory to be priced at 10 cubes minimum. But why? This is made to encourage users to buy cubes 
+to support cubern and since 5 cubes are given daily by default: this allows users to buy plugins too without paying any physical money.
+
+## Getting Started
+To build plugins you need to enter into cuberns workshop built-in plugins builder. The plugins builder is a small built-in editor which will help in building the plugin. 
+The workshops plugin will boot up only when the user gives permission and manually boots it by going to the `Plugins` topbar. The plugin will be a external window popup.
+For every plugin related task, it can only be done with the `PluginServices`. An example:
+```lua
+local window = PluginServices.BuildWindow("My plugin") -- this will build the plugin window. Calling this twice will not make 2 windows!
+-- the 2D viewport will automatically be replicated into the window.
+local MyButton = PluginServices.GetComponent("MyButton") -- here we can refer and access the Button
+
+MyButton:Connect("Pressed", __SCRIPT__, "OnPressed")
+
+function OnPressed()
+    printl("My button was pressed.")
+end
+```
