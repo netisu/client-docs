@@ -1,0 +1,146 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Cubern",
+  "theme": "venus",
+  "favicon": "/favicon.jpg",
+  "colors": {
+    "primary": "#1c1c1c",
+    "light": "#dadada",
+    "dark": "#1c1c1c",
+    "anchors": {
+      "from": "#292929",
+      "to": "#0c0f0e"
+    }
+  },
+  "metadata": {
+      "og:image": "images/untitled.png"
+  },
+  "background": {
+    "style": "windows"
+  },
+  "anchors": [
+      {
+          "name": "Our Discord Server",
+          "icon": "discord",
+          "url": "https://discord.gg/BDxsfmN6Yz"
+      }
+  ],
+  "topbarLinks": [
+    {
+      "name": "Cubern",
+      "url": "https://cubern.sbs"
+    }
+  ],
+  "tabs": [
+    {
+        "name": "Plugins",
+        "url": "plugins"
+    }
+],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
+      "group": "Plugins",
+      "pages": [
+        "plugins/overview"
+      ]
+    },
+    
+    {
+      "group": "API",
+      "pages": [
+        "plugins/API/pluginservices"
+      ]
+    },
+    {
+      "group": "Tutorials",
+      "pages": [
+        "plugins/Tutorials/accessing-gizmo-mixins",
+        "plugins/Tutorials/instancing-an-object"
+      ]
+    },
+    {
+      "group": "Tutorials",
+      "pages": [
+        "tutorials/learning-syntax",
+        "tutorials/starter-character",
+        "tutorials/using-team-create",
+        "tutorials/increasing-performance",
+        "tutorials/cubern-github",
+        "tutorials/cubern-replication"
+      ]
+    },
+    {
+      "group": "Abstract Classes",
+      "pages": [
+        "Abstract-Classes/Instance",
+        "Abstract-Classes/ActiveInstance"
+      ]
+    },
+    {
+      "group": "Classes",
+      
+      "pages": [
+        "Classes/Game",
+        "Classes/WarpService",
+        "Classes/ChatService",
+        "Classes/InputService",
+        "Classes/Players",
+        "Classes/Player",
+        "Classes/NPC",
+        "Classes/Seat",
+        "Classes/TweenService",
+        "Classes/Tween",
+        "Classes/Map",
+        "Classes/Spawnpoint",
+        "Classes/Sun",
+        "Classes/SoundPlayer",
+        "Classes/Datastore",
+        "Classes/DataStoreService",
+        "Classes/PointLight",
+        "Classes/LocalStorage",
+        "Classes/Environment",
+        "Classes/Folder",
+        "Classes/ServerStorage",
+        "Classes/Part",
+        "Classes/MeshPart",
+        "Classes/RemoteEventService"
+      ]
+    },
+    {
+      "group": "Data Types",
+      "pages": [
+        "Types/Vector3",
+        "Types/Vector2",
+        "Types/Color3",
+        "Types/Material"
+      ]
+    },
+    {
+      "group": "Enums",
+      "pages": [
+        "Enums/KeyList"
+      ]
+    },
+    {
+      "group": "Global",
+      "pages": [
+        "Global/Global",
+        {
+          "group": "Global Classes",
+          "icon": "earth-americas",
+          "pages": [
+            "Global/Classes/globalstate",
+            "Global/Classes/Json",
+            "Global/Classes/Engine"
+          ]
+        }
+      ]
+    }
+  ]
+}
