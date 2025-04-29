@@ -1,0 +1,50 @@
+---
+title: 'GlobalState'
+description: 'API Documentation for GlobalState class'
+icon: 'book-atlas'
+---
+
+<Warning>This class cannot be instanced by a `.new()` function.</Warning>
+
+## Functions
+#### `Seek(VariableName)`
+The `Seek` function is used to get a global variable stored. The `VariableName` should be a string value! It will return a `nil` value if no global variable by that name is given. An example can be:
+```lua
+printl(GlobalState.Seek("MyName"))
+```
+
+#### `SeekFunction(ScriptName, FunctionName)`
+The `SeekFunction` takes 2 variables which of both need to be strings. The function is used to run a function from 1 script to another. Here is an example!
+```lua script1.clua
+GlobalState.SeekFunction("script2", "sayHello")
+```
+```lua script2.clua
+function sayHello()
+    printl("Hello!")
+end
+```
+
+#### `Push(VariableName, VariableValue, Overwrite = true)`
+The `Push` functions takes 2 variables in which `VariableName` must be a string and `VariableValue` can be of any. It also takes a 3rd optional variable which must be a boolean! The function is used to create/update a global variable. An example can be:
+```lua script1.clua
+GlobalState.Push("MyName", "Arexvy")
+wait(2)
+GlobalState.Push("MyName", 2) -- here we overwrite the value of previously declared variable "MyName" to a integer with value of 2
+```
+
+```lua script2.clua
+printl(GlobalState.Seek("MyName")) -- will print Arexvy
+```
+
+#### `Pop(VariableName)`
+The `Pop` function takes a variable which must be a string and be a value. It returns a bool value to tell if the action was successful or not. An example can be:
+```lua
+GlobalState.Push("MyName", "Arexvy")
+local success = GlobalState.Pop("MyName")
+if success then 
+    printl("Successfully removed global variable MyName")
+end
+```
+
+#### `ClearGlobalStateMemory()`
+The `ClearGlobalStateMemory` function clears all of the GlobalVariables stored.

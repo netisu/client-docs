@@ -1,0 +1,35 @@
+---
+title: 'Json'
+description: '`Json` is a global used for interacting with the JSON language'
+icon: 'objects-column'
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+
+## Functions 
+#### `void`
+The `void()` function returns a empty representation for JSON. An example:
+```lua
+printl(Json.void())
+```
+
+#### `parse(string json)`
+The `parse` function returns a table of contents of the json given. An example:
+```lua
+local json_data = Json.parse('{ "fruit": "Apple", "size": "Large", "color": "Red" }')
+printl(json_data["fruit"])
+```
+This function returns error (if any if none then returns `nil`). An example:
+```lua
+local err = Json.parse("dat")
+if err ~= nil then 
+    printl(err) -- outputs: 
+end
+```
+
+#### `serialize(Array data)`
+An example:
+```lua
+local serializedData = Json.serialize({
+    Something = "real"
+})
+```
