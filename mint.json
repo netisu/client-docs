@@ -2,7 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "netisu",
   "logo": "/netisu-logo.svg",
-  "theme": "venus",
+  "theme": "prism",
+  "layout": "topnav",
   "favicon": "/netisu-icon.svg",
   "colors": {
     "primary": "#1c1c1c",
@@ -28,8 +29,8 @@
   ],
   "topbarLinks": [
     {
-      "name": "Cubern",
-      "url": "https://cubern.sbs"
+      "name": "Back To Netisu",
+      "url": "https://netsu.com"
     }
   ],
   "tabs": [
