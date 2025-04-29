@@ -18,9 +18,7 @@
       "og:image": "images/untitled.png"
   },
   "topbar": {
-    "style": {
-      "gradient"
-    }
+    "style": "gradient"
   },
   "background": {
     "style": "windows"
