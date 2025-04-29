@@ -1,7 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "netisu",
-  "theme": "quill",
+  "logo": "/netisu-logo.svg"
+  "theme": "venus",
   "favicon": "/netisu-icon.svg",
   "colors": {
     "primary": "#1c1c1c",
