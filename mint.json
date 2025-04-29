@@ -17,6 +17,11 @@
   "metadata": {
       "og:image": "images/untitled.png"
   },
+  "topbar": {
+    "style": {
+      "gradient"
+    }
+  },
   "background": {
     "style": "windows"
   },
@@ -24,13 +29,13 @@
       {
           "name": "Our Discord Server",
           "icon": "discord",
-          "url": "https://discord.gg/BDxsfmN6Yz"
+          "url": "https://discord.gg/Zec49GD6ps"
       }
   ],
   "topbarLinks": [
     {
       "name": "Back To Netisu",
-      "url": "https://netsu.com"
+      "url": "https://netisu.com"
     }
   ],
   "tabs": [
