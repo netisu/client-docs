@@ -1,8 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Cubern",
+  "name": "netisu",
   "theme": "venus",
-  "favicon": "/favicon.jpg",
+  "favicon": "/netisu-icon.svg",
   "colors": {
     "primary": "#1c1c1c",
     "light": "#dadada",
