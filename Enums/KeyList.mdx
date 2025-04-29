@@ -1,0 +1,571 @@
+---
+title: 'KeyList'
+description: "`KeyList` is used to determine which key is pressed based off it's key code"
+icon: 'keyboard'
+---
+
+KeyList is used to determine which key is pressed. Here is a comprehensive list of keyboard keys and their descriptions:
+
+- `None (Undefined): 0`  
+  Enum value which doesn't correspond to any key. Used to initialize Key properties with a generic state.
+
+- `Special (Non-printable): 4194304`  
+  Keycodes with this bit applied are non-printable.
+
+- `Escape: 4194305`  
+  Escape key.
+
+- `Tab: 4194306`  
+  Tab key.
+
+- `BackTab (Shift + Tab): 4194307`  
+  Shift + Tab key.
+
+- `Backspace: 4194308`  
+  Backspace key.
+
+- `Enter (Return): 4194309`  
+  Return key (on the main keyboard).
+
+- `KeyPadEnter (Enter on NumPad): 4194310`  
+  Enter key on the numeric keypad.
+
+- `Insert: 4194311`  
+  Insert key.
+
+- `Delete: 4194312`  
+  Delete key.
+
+- `Pause: 4194313`  
+  Pause key.
+
+- `Print (Print Screen): 4194314`  
+  Print Screen key.
+
+- `Home: 4194317`  
+  Home key.
+
+- `End: 4194318`  
+  End key.
+
+- `LeftArrow (Left Arrow): 4194319`  
+  Left arrow key.
+
+- `UpArrow (Up Arrow): 4194320`  
+  Up arrow key.
+
+- `RightArrow (Right Arrow): 4194321`  
+  Right arrow key.
+
+- `DownArrow (Down Arrow): 4194322`  
+  Down arrow key.
+
+- `PageUp (Page Up): 4194323`  
+  Page Up key.
+
+- `PageDown (Page Down): 4194324`  
+  Page Down key.
+
+- `Shift: 4194325`  
+  Shift key.
+
+- `Ctrl (Control): 4194326`  
+  Control key.
+
+- `Meta (Meta): 4194327`  
+  Meta key.
+
+- `Alt: 4194328`  
+  Alt key.
+
+- `CapsLock: 4194329`  
+  Caps Lock key.
+
+- `NumLock (Num Lock): 4194330`  
+  Num Lock key.
+
+- `ScrollLock (Scroll Lock): 4194331`  
+  Scroll Lock key.
+
+- `F1: 4194332`  
+  F1 key.
+
+- `F2: 4194333`  
+  F2 key.
+
+- `F3: 4194334`  
+  F3 key.
+
+- `F4: 4194335`  
+  F4 key.
+
+- `F5: 4194336`  
+  F5 key.
+
+- `F6: 4194337`  
+  F6 key.
+
+- `F7: 4194338`  
+  F7 key.
+
+- `F8: 4194339`  
+  F8 key.
+
+- `F9: 4194340`  
+  F9 key.
+
+- `F10: 4194341`  
+  F10 key.
+
+- `F11: 4194342`  
+  F11 key.
+
+- `F12: 4194343`  
+  F12 key.
+
+- `F13: 4194344`  
+  F13 key.
+
+- `F14: 4194345`  
+  F14 key.
+
+- `F15: 4194346`  
+  F15 key.
+
+- `F16: 4194347`  
+  F16 key.
+
+- `F17: 4194348`  
+  F17 key.
+
+- `F18: 4194349`  
+  F18 key.
+
+- `F19: 4194350`  
+  F19 key.
+
+- `F20: 4194351`  
+  F20 key.
+
+- `F21: 4194352`  
+  F21 key.
+
+- `F22: 4194353`  
+  F22 key.
+
+- `F23: 4194354`  
+  F23 key.
+
+- `F24: 4194355`  
+  F24 key.
+
+- `F25: 4194356`  
+  F25 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F26: 4194357`  
+  F26 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F27: 4194358`  
+  F27 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F28: 4194359`  
+  F28 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F29: 4194360`  
+  F29 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F30: 4194361`  
+  F30 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F31: 4194362`  
+  F31 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F32: 4194363`  
+  F32 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F33: 4194364`  
+  F33 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F34: 4194365`  
+  F34 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `F35: 4194366`  
+  F35 key. Only supported on macOS and Linux due to a Windows limitation.
+
+- `KeyPadMultiply (NumPad *): 4194433`  
+  Multiply (*) key on the numeric keypad.
+
+- `KeyPadDivide (NumPad /): 4194434`  
+  Divide (/) key on the numeric keypad.
+
+- `KeyPadSubtract (NumPad -): 4194435`  
+  Subtract (-) key on the numeric keypad.
+
+- `KeyPadPeriod (NumPad .): 4194436`  
+  Period (.) key on the numeric keypad.
+
+- `KeyPadAdd (NumPad +): 4194437`  
+  Add (+) key on the numeric keypad.
+
+- `KeyPadZero (NumPad 0): 4194438`  
+  Number 0 on the numeric keypad.
+
+- `KeyPadOne (NumPad 1): 4194439`  
+  Number 1 on the numeric keypad.
+
+- `KeyPadTwo (NumPad 2): 4194440`  
+  Number 2 on the numeric keypad.
+
+- `KeyPadThree (NumPad 3): 4194441`  
+  Number 3 on the numeric keypad.
+
+- `KeyPadFour (NumPad 4): 4194442`  
+  Number 4 on the numeric keypad.
+
+- `KeyPadFive (NumPad 5): 4194443`  
+  Number 5 on the numeric keypad.
+
+- `KeyPadSix (NumPad 6): 4194444`  
+  Number 6 on the numeric keypad.
+
+- `KeyPadSeven (NumPad 7): 4194445`  
+  Number 7 on the numeric keypad.
+
+- `KeyPadEight (NumPad 8): 4194446`  
+  Number 8 on the numeric keypad.
+
+- `KeyPadNine (NumPad 9): 4194447`  
+  Number 9 on the numeric keypad.
+
+- `KeyPadMenu (Context menu): 4194370`  
+  Context menu key.
+
+- `Hyper (Hyper key): 4194371`  
+  Hyper key (On Linux/X11 only).
+
+- `Help (Help): 4194373`  
+  Help key.
+
+- `Back (Media back): 4194376`  
+  Media back key.
+
+- `Forward (Media forward): 4194377`  
+  Media forward key.
+
+- `Stop (Media stop): 4194378`  
+  Media stop key.
+
+- `Refresh (Media refresh): 4194379`  
+  Media refresh key.
+
+- `VolumeDown (Volume down): 4194380`  
+  Volume down key.
+
+- `VolumeMute (Mute volume): 4194381`  
+  Mute volume key.
+
+- `VolumeUp (Volume up): 4194382`  
+  Volume up key.
+
+- `MediaPlay (Media play): 4194388`  
+  Media play key.
+
+- `MediaStop (Media stop): 4194389`  
+  Media stop key.
+
+- `MediaPrevious (Previous song): 4194390`  
+  Previous song key.
+
+- `MediaNext (Next song): 4194391`  
+  Next song key.
+
+- `MediaRecord (Media record): 4194392`  
+  Media record key.
+
+- `HomePage (Home page): 4194393`  
+  Home page key.
+
+- `Favorites (Favorites): 4194394`  
+  Favorites key.
+
+- `Search (Search): 4194395`  
+  Search key.
+
+- `Standby (Standby): 4194396`  
+  Standby key.
+
+- `OpenURL (Open URL / Launch Browser): 4194397`  
+  Open URL / Launch Browser key.
+
+- `LaunchMail (Launch Mail): 4194398`  
+  Launch Mail key.
+
+- `LaunchMedia (Launch Media): 4194399`  
+  Launch Media key.
+
+- `Launch0 (Launch Shortcut 0): 4194400`  
+  Launch Shortcut 0 key.
+
+- `Launch1 (Launch Shortcut 1): 4194401`  
+  Launch Shortcut 1 key.
+
+- `Launch2 (Launch Shortcut 2): 4194402`  
+  Launch Shortcut 2 key.
+
+- `Launch3 (Launch Shortcut 3): 4194403`  
+  Launch Shortcut 3 key.
+
+- `Launch4 (Launch Shortcut 4): 4194404`  
+  Launch Shortcut 4 key.
+
+- `Launch5 (Launch Shortcut 5): 4194405`  
+  Launch Shortcut 5 key.
+
+- `Launch6 (Launch Shortcut 6): 4194406`  
+  Launch Shortcut 6 key.
+
+- `Launch7 (Launch Shortcut 7): 4194407`  
+  Launch Shortcut 7 key.
+
+- `Launch8 (Launch Shortcut 8): 4194408`  
+  Launch Shortcut 8 key.
+
+- `Launch9 (Launch Shortcut 9): 4194409`  
+  Launch Shortcut 9 key.
+
+- `LaunchA (Launch Shortcut A): 4194410`  
+  Launch Shortcut A key.
+
+- `LaunchB (Launch Shortcut B): 4194411`  
+  Launch Shortcut B key.
+
+- `LaunchC (Launch Shortcut C): 4194412`  
+  Launch Shortcut C key.
+
+- `LaunchD (Launch Shortcut D): 4194413`  
+  Launch Shortcut D key.
+
+- `LaunchE (Launch Shortcut E): 4194414`  
+  Launch Shortcut E key.
+
+- `LaunchF (Launch Shortcut F): 4194415`  
+  Launch Shortcut F key.
+
+- `Globe (Globe): 4194416`  
+  "Globe" key on Mac / iPad keyboard.
+
+- `Keyboard (On-screen keyboard): 4194417`  
+  "On-screen keyboard" key on iPad keyboard.
+
+- `JISEisu (英数): 4194418`  
+  英数 key on Mac keyboard.
+
+- `JISKana (かな): 4194419`  
+  かな key on Mac keyboard.
+
+- `Unknown (Unknown): 8388607`  
+  Unknown key.
+
+- `Space (Space): 32`  
+  Space key.
+
+- `Exclam (!): 33`  
+  ! key.
+
+- `QuoteDbl ("): 34`  
+  " key.
+
+- `NumberSign (#): 35`  
+  "#" key.
+
+- `Dollar ($): 36`  
+  $ key.
+
+- `Percent (%): 37`  
+  % key.
+
+- `Ampersand (&): 38`  
+  & key.
+
+- `Apostrophe ('): 39`  
+  ' key.
+
+- `ParenLeft "(": 40`  
+  ( key.
+
+- `ParenRight ")": 41`  
+  ) key.
+
+- `Asterisk (*): 42`  
+  "*" key.
+
+- `Plus (+): 43`  
+  "+" key.
+
+- `Comma (,): 44`  
+  , key.
+
+- `Minus (-): 45`  
+  "-" key.
+
+- `Period (.): 46`  
+  . key.
+
+- `Slash (/): 47`  
+  / key.
+
+- `0 (0): 48`  
+  Number 0 key.
+
+- `1 (1): 49`  
+  Number 1 key.
+
+- `2 (2): 50`  
+  Number 2 key.
+
+- `3 (3): 51`  
+  Number 3 key.
+
+- `4 (4): 52`  
+  Number 4 key.
+
+- `5 (5): 53`  
+  Number 5 key.
+
+- `6 (6): 54`  
+  Number 6 key.
+
+- `7 (7): 55`  
+  Number 7 key.
+
+- `8 (8): 56`  
+  Number 8 key.
+
+- `9 (9): 57`  
+  Number 9 key.
+
+- `Colon (:): 58`  
+  : key.
+
+- `Semicolon (;): 59`  
+  ; key.
+
+- `Less (<): 60`  
+  < key.
+
+- `Equal (=): 61`  
+  = key.
+
+- `Greater (>): 62`  
+  ">" key.
+
+- `Question (?): 63`  
+  ? key.
+
+- `At (@): 64`  
+  @ key.
+
+- `A (A): 65`  
+  A key.
+
+- `B (B): 66`  
+  B key.
+
+- `C (C): 67`  
+  C key.
+
+- `D (D): 68`  
+  D key.
+
+- `E (E): 69`  
+  E key.
+
+- `F (F): 70`  
+  F key.
+
+- `G (G): 71`  
+  G key.
+
+- `H (H): 72`  
+  H key.
+
+- `I (I): 73`  
+  I key.
+
+- `J (J): 74`  
+  J key.
+
+- `K (K): 75`  
+  K key.
+
+- `L (L): 76`  
+  L key.
+
+- `M (M): 77`  
+  M key.
+
+- `N (N): 78`  
+  N key.
+
+- `O (O): 79`  
+  O key.
+
+- `P (P): 80`  
+  P key.
+
+- `Q (Q): 81`  
+  Q key.
+
+- `R (R): 82`  
+  R key.
+
+- `S (S): 83`  
+  S key.
+
+- `T (T): 84`  
+  T key.
+
+- `U (U): 85`  
+  U key.
+
+- `V (V): 86`  
+  V key.
+
+- `W (W): 87`  
+  W key.
+
+- `X (X): 88`  
+  X key.
+
+- `Y (Y): 89`  
+  Y key.
+
+- `Z (Z): 90`  
+  Z key.
+
+- `BracketLeft ([): 91`  
+  [ key.
+
+- `Backslash (\): 92`  
+  \ key.
+
+- `BracketRight (]): 93`  
+  ] key.
+
+- `AsciiCircum (^): 94`  
+  ^ key.
+
+- `Underscore (_): 95`  
+  _ key.
+
+- `BraceLeft "{": 123`  
+   key.
+
+- `Bar "|": 124`  
+  | key.
+
+- `BraceRight "}": 125`  
+   key.
+
+- `AsciiTilde (~): 126`  
+  ~ key.
