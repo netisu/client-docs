@@ -1,0 +1,43 @@
+---
+title: 'Color3'
+description: 'API Documentation for Color3 datatype.'
+icon: 'droplet'
+---
+
+## Constructors
+#### `Color3.new(r, g, b, a)`
+`r`, `g` and `b` must be integers! `a` is an optional. An example:
+```lua
+local color3 = Color3.new(222, 422, 622)
+```
+
+## Properties
+#### `r`
+The property r component of the Color3
+
+#### `g`
+The property g component of the Color3
+
+#### `b`
+The property b component of the Color3
+
+#### `a`
+The property a component of the Color3
+
+## Methods
+#### `FromHex(HexValue)`
+HexValue must be a string! An example:
+```lua
+local myColor3FromHex = Color3.FromHex("#FFFFFF")
+```
+#### `Random()`
+The `Random` function takes no parameters and returns a random color. An example:
+```lua
+while true do 
+    wait(1)
+    Map.Cube.color = Color3.Random()
+    wait(1)
+    Map.Cube.color = Color3.Random()
+end
+```
+In this example the color of cube changes twice every 2 seconds.
