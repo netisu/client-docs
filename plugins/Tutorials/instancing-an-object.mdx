@@ -1,0 +1,11 @@
+---
+title: 'Instancing an object'
+description: 'Learn how to instance an object.'
+icon: 'object-subtract'
+---
+In-order to instance an instance. You can make use of the `InstanceManager` class:
+```lua
+local Cube = InstanceManager:Create("Cube")
+Cube.Name = "MyPluginsCube"
+Cube.Parent = Map
+```

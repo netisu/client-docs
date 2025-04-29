@@ -1,0 +1,39 @@
+---
+title: 'Accessing gizmo mixin'
+description: 'Learn how to access built-in gizmos of the workshop.'
+icon: 'rotate'
+---
+Before we start, you may question yourself: what is a "gizmo"? In simple words a gizmo is a tool used for transform which looks like:
+
+<img
+  className="rounded-lg"
+  src="/images/prev_gizmo.png"
+  alt="Hero Light"
+/>
+
+## Telling the workshop to select another selected object
+To tell the workshop to select another keyword we can make use of `PluginServices` and request it.
+```lua
+PluginServices:SetSelected(Map.Cube) -- this will return nil if the object is not found.
+```
+
+To change gizmo modes for example to set it to rotation or scale or move we can use the `SetGizmoMode(int mode)`:
+```lua
+-- Currently enums are not used for this
+PluginServices:SetGizmoMode(1) -- now the gizmo mode is "Move"
+```
+```lua
+-- Currently enums are not used for this
+PluginServices:SetGizmoMode(2) -- now the gizmo mode is "Scale"
+```
+Just like that you can use `GetGizmoMode` to get the current gizmo mode selected by the user.
+
+## How shall I know if a object is selected?
+You can get if already the user has selected an object with `GetSelected` which will return `nil` if no object was selected:
+```lua
+local object_selected = PluginServices:GetSelected()
+
+if object_selected == nil then 
+    PluginServices:SetSelected(Map.Cube)
+end
+```
