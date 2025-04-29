@@ -1,0 +1,117 @@
+---
+title: 'Datastore'
+description: '`Datastore` is a class used for storing data persistent across play sessions'
+icon: 'database'
+---
+
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+<Warning>This class cannot be accessed by client sided scripts.</Warning>
+<Warning>Maximum 30 requests can be made in a mintue.</Warning>
+<Info>When using this service in local playtest: Your datastore WILL be saved into your computers storage under the username given by local server. Check workshop settings to disable this or to clear existing databases.</Info>
+
+## Properties
+#### `userId: int`
+Tells the user id of whom this database belongs to.
+#### `busy: bool`
+Tells if the class is busy in waiting/setting for a change.
+## Functions
+#### `Get(string keyname)`
+Returns the value of key. An example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    if DataStore ~= nil then
+        local PlayerCoins = DataStore.Get("Coins")
+        if PlayerCoins ~= nil then
+            printl("Loaded for player with id: " .. user_id .. "! Player has " .. PlayerCoins .. " coins!")
+            OnLoadedCoins(PlayerCoins)
+        else
+            printl("Making player coins!")
+            DataStore.Set("Coins", 10)
+            while DataStore.busy do
+                wait() -- waiting till the datastore is not done with processing
+            end
+            OnLoadedCoins(10)
+        end
+    else
+        DataStoreService:CreateDataStore(user_id) -- once it is done creating data store, it will again call the OnDataStoreLoad signal
+    end
+end
+
+function OnLoadedCoins(coinAmount) 
+    printl(coinAmount)
+end
+```
+
+#### `Set(string keyname, value)`
+Sets a value of a key. This function will create a key if doesnt exist and overwrite if exists.An Example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    if DataStore ~= nil then
+        local PlayerCoins = DataStore.Get("Coins")
+        if PlayerCoins ~= nil then 
+            printl("Loaded for player with id: " .. user_id .. "! Player has " .. PlayerCoins .. " coins!")
+            OnLoadedCoins(PlayerCoins)
+        else
+            printl("Making player coins!")
+            DataStore.Set("Coins", 10)
+            while DataStore.busy do
+                wait() -- waiting till the datastore is not done with processing
+            end
+            OnLoadedCoins(10)
+        end
+    else
+        DataStoreService:CreateDataStore(user_id) -- once it is done creating data store, it will again call the OnDataStoreLoad signal
+    end
+end
+
+function OnLoadedCoins(coinAmount) 
+    printl(coinAmount)
+end
+```
+
+#### `Remove(string key)`
+The key needs to be the valuename. An example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    if DataStore ~= nil then
+        local PlayerCoins = DataStore.Get("Coins")
+        if PlayerCoins ~= nil then
+            DataStore.Remove("Coins")
+            while DataStore.busy do
+                wait() -- waiting till the datastore is not done with processing
+            end
+            printl("Removed!")
+        end
+    end
+end
+
+```
+## Signals
+> None for now.

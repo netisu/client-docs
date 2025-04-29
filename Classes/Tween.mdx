@@ -1,0 +1,60 @@
+---
+title: 'Tween'
+description: '`Tween` is a class used for tweening objects'
+icon: 'arrow-right-to-arc'
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+
+## Properties
+## Functions
+#### `TweenProperty(object, propertyName, value, time)`
+The `TweenProperty` is used to tween property of any object (if it is supported). An example:
+```lua
+local TweenService = Game:GetService("TweenService")
+local myTween = TweenService:Create()
+myTween:TweenProperty(Map.Cube, "position", Vector3.new(5, 5, 5), 1.0)
+```
+#### `Kill()`
+Kills the active tween. An example:
+```lua
+local TweenService = Game:GetService("TweenService")
+local myTween = TweenService:Create()
+myTween:TweenProperty(Map.Cube, "position", Vector3.new(5, 5, 5), 1.0)
+myTween:Kill()
+```
+
+#### `Stop()`
+Stops an active tween. An example:
+```lua
+local TweenService = Game:GetService("TweenService")
+local myTween = TweenService:Create()
+myTween:TweenProperty(Map.Cube, "position", Vector3.new(5, 5, 5), 5.0)
+wait(2.5)
+myTween:Stop() -- stopped the tween after 2.5 seconds. This can be resumed
+```
+#### `Play()`
+Plays an inactive tween. An example:
+```lua
+local TweenService = Game:GetService("TweenService")
+local myTween = TweenService:Create()
+myTween:TweenProperty(Map.Cube, "position", Vector3.new(5, 5, 5), 5.0)
+wait(2.5)
+myTween:Stop() -- stop the tween after 2.5 seconds
+wait(2.5)
+myTween:Play() -- play the tween after 2.5 seconds
+```
+
+## Signals
+#### `OnTweenCompleted`
+Is played when a tween is completed. An example:
+```lua
+local TweenService = Game:GetService("TweenService")
+local myTween = TweenService:Create()
+myTween:Connect("OnTweenCompleted", __SCRIPT__, "ExampleFunction")
+myTween:TweenProperty(Map.Cube, "position", Vector3.new(5, 5, 5), 5.0)
+
+function ExampleFunction() 
+    myTween = nil
+    printl("Finished!")
+end
+```

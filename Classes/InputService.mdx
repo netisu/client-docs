@@ -1,0 +1,54 @@
+---
+title: 'InputService'
+description: '`InputService` is a service used for detecting inputs made by the player'
+icon: 'symbols'
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+
+## Functions 
+#### `IsKeyPressed(KeyList key)`
+Returns a bool telling if a key is pressed. An example:
+```lua 
+local InputService = Game:GetService("InputService")
+while true do
+    if InputService.IsKeyPressed(KeyList.A) then 
+        printl("Key A pressed!")
+    end
+end
+```
+
+#### `IsKeyHeld(KeyList key)`
+Returns a bool telling if a key is held. An example:
+```lua 
+local InputService = Game:GetService("InputService")
+while true do
+    if InputService.IsKeyHeld(KeyList.A) then 
+        printl("Key A is held!")
+    end
+end
+```
+
+#### `IsKeyReleased(KeyList key)`
+Returns a bool telling if a key is released. An example:
+```lua 
+local InputService = Game:GetService("InputService")
+while true do
+    if InputService.IsKeyReleased(KeyList.A) then 
+        printl("Key A is released!")
+    end
+end
+```
+
+#### `IsAnyKeyPressed()`
+Returns a bool telling if any key was pressed. An example:
+```lua 
+local InputService = Game:GetService("InputService")
+while true do
+    if InputService.IsAnyKeyPressed() then 
+        printl("A key is released!")
+    end
+end
+```
+
+#### `GetMousePosition()`
+Returns mouse position as `Vector2`.

@@ -1,0 +1,129 @@
+---
+title: 'Player'
+description: '`Player` is a class which holds individual player data'
+icon: 'user'
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+<Info>
+  This class inherits `ActiveInstance` which means that all properties, functions and signals from ActiveInstance can be used.
+</Info>
+## Properties
+#### `username: string`
+Username property holds a string with the username of a player
+
+#### `userId: int`
+userId property holds a string with the userId of a player
+
+#### `health: int`
+Health property holds a int with the health of a player
+
+#### `admin: bool`
+Admin property holds a bool value which tells if the player is a cubern admin or not
+
+#### `developer: bool`
+Developer property holds a bool value which tells if a player is the creator of the current game
+
+#### `PremiumUser: bool`
+PremiumUser property holds a bool value which tells if a player is subscribed to cuberns membership
+
+#### `JumpPower: float`
+JumpPower property holds a float value which is the jump power of a player. This can only be changed by the server.
+
+#### `WalkSpeed: float`
+WalkSpeed property holds a float value which is the walk speed of a player. This can only be changed by the server.
+
+#### `Sitting: bool`
+Sitting property holds a bool value which tells if a player is sitting or not. 
+
+#### `Avatar: Array`
+Holds avatar data. Like:
+```lua
+local Cubern = Game:GetService("Player"):GetPlayer("Cubern")
+Cubern.Avatar["Hat1"].Rotation = Vector3.new(10, 10, 10)
+```
+
+## Functions
+#### `Kill()`
+This function can only be called by server sided scripts and client sided scripts but only for localPlayer. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Kill()
+```
+#### `Kick(string message)`
+This function can only be called by server sided scripts. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Kick("You broke rule #1")
+```
+
+#### `Respawn()`
+This function can only be called by server sided scripts and client sided scripts but only for localPlayer. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Respawn()
+```
+
+#### `OwnsItem(int ItemId)`
+This function can only be called by server-sided scripts. An example:
+```lua
+-- OwnsItem should not be used oftenly like being called excessively in a second.
+-- The execution of script will stop until OwnsItem doesnt return anything.
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+
+if cubern_player:OwnsItem(25) then
+    printl("Cubern owns it!")
+end
+```
+
+#### `ClearAvatar()`
+This function can only be called by server-sided scripts. It is used to completely clear out the avatar of a user to default avatar with no cosmetics. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:ClearAvatar()
+```
+
+#### `Sit(Seat seat = null)`
+The sit function can recieve a optional parameter which would point to the seat a player would sit on. If nothing is given then the player will sit down at the place it was standing at. This can be called by server sided scripts and client sided scripts but only for localPlayer An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Sit()
+```
+
+#### `StandUp()`
+The standup function will make the player stand up if the player was sitting. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:StandUp()
+```
+
+## Signals
+#### `OnDeath`
+This signal is called when a player dies. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Connect("OnDeath", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall()
+    printl("Rest in peace lol")
+end
+```
+
+#### `OnRespawned`
+This signal is called when a player respawns after death. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Connect("OnRespawned", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall()
+    printl("Welcome back!")
+end
+```

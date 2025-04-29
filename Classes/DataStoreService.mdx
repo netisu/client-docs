@@ -1,0 +1,84 @@
+---
+title: 'DataStoreService'
+description: '`DataStoreService` is a class which is used to save data'
+icon: 'database'
+---
+
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+<Warning>This class cannot be accessed by client sided scripts.</Warning>
+<Warning>Maximum 30 requests can be made in a mintue.</Warning>
+<Info>When using this service in local playtest: Your datastore WILL be saved into your computers storage under the username given by local server. Check workshop settings to disable this or to clear existing databases. </Info>
+
+## Functions
+#### `GetDataStore(int user_id)`
+This function is used to get datastore of the user id given. Returns `DataStore`. You must use a `Connect` function in-order to perform things with the datastore! An example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    if DataStore ~= nil then 
+        printl("Loaded for player with id: " .. user_id)
+    else
+        DataStoreService:CreateDataStore(user_id) -- once it is done creating data store, it will again call the OnDataStoreLoad signal
+    end
+end
+```
+
+#### `CreateDataStore(int user_id)`
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    if DataStore ~= nil then
+        local PlayerCoins = DataStore.Get("Coins")
+        printl("Loaded for player with id: " .. user_id)
+    else
+        DataStoreService:CreateDataStore(user_id) -- once it is done creating data store, it will again call the OnDataStoreLoad signal
+    end
+end
+```
+## `Signals`
+#### `OnDataStoreLoad`
+Called when a datastore is done loading. Example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+local Players = Game:GetService("Players")
+DataStoreService:Connect("OnDataStoreLoad", __SCRIPT__, "CallOnDataStoreLoad")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "OnPlayerEnter")
+
+function OnPlayerEntered(Player)
+    DataStoreService:GetDataStore(Player.userId)
+end
+
+function CallOnDataStoreLoad(DataStore, user_id)
+    printl("Loaded for player with id: " .. user_id)
+end
+```
+
+#### `OnInternalError`
+<Info>This signal will never be emitted during local playtest</Info>
+Called when there is a error with loading datastore. Example:
+```lua
+local DataStoreService = Game:GetService("DataStoreService")
+DataStoreService:Connect("OnInternalError", __SCRIPT__, "CallOnDataStoreLoadFailure")
+
+function CallOnDataStoreLoadFailure(VPS_ERROR_RESPONSE_CODE, VPS_ERROR_ANY_DETAIL)
+    -- this will automatically be forwarded to developers
+    printl(VPS_ERROR_RESPONSE_CODE)
+    printl(VPS_ERROR_ANY_DETAIL) 
+end
+```

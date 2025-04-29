@@ -1,0 +1,35 @@
+---
+title: 'Seat'
+description: '`Seat` is a part that players can sit on'
+icon: 'chair-office'
+---
+<Info>
+  This class inherits `ActiveInstance` which means that all properties, functions and signals from ActiveInstance can be used.
+</Info> 
+## Properties
+#### `locked: bool`
+The locked property holds a bool value. If it is set to true then no one can sit in the seat.
+
+#### `Occupant: Player`
+The occupant property holds a Player value. The value is `nil` if no one is seated. 
+
+## Signals
+#### `OnPlayerSit`
+This signal is called when a player sits on the seat. An example:
+```lua
+Map.Seat:Connect("OnPlayerSit", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(player) 
+    printl(player.username .. " just took the seat!")
+end
+```
+
+#### `OnPlayerLeft`
+This signal is called when a player leaves the seat. An example:
+```lua
+Map.Seat:Connect("OnPlayerLeft", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(player) 
+    printl(player.username .. " just left the seat!")
+end
+```

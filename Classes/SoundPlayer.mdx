@@ -1,0 +1,43 @@
+---
+title: 'SoundPlayer'
+description: '`SoundPlayer` is a class used for playing sounds in the game world'
+icon: 'volume'
+---
+
+## Properties
+#### `autoplay: bool`
+To autoplay the sound the moment the client loads the map or not.
+
+#### `playing: bool`
+Bool to tell if the sound player is playing something or not.
+
+#### `sound_id: int`
+Specifies the sound_id.
+
+## Functions 
+#### `play(float from = 0.0)`
+The `play` function starts audio playback. Optionally, specify a starting point with the `from` parameter in seconds.
+
+#### `seek(float to_position)`
+Sets the position from which audio will be played, in seconds.
+
+#### `get_playback_position(): float`
+Returns the position of sound in the SoundPlayer in seconds.
+
+#### `load(int sound_id)`
+Loads the given sound_id into sound player.
+
+## Signals
+#### `loaded`
+Called when the client has successfully downloaded the sound effect. Example:
+```lua
+SoundPlayer:Connect("Loaded", __SCRIPT__, "functionToCall")
+SoundPlayer:load(12234)
+
+function functionToCall()
+    SoundPlayer.Play()
+end
+```
+
+#### `finished`
+Called when the sound player finishes.

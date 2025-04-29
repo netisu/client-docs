@@ -1,0 +1,32 @@
+---
+title: 'Game'
+description: 'It is the root of parent-child hierarchy. Its children are services, like Map'
+icon: 'game-board-simple'
+---
+
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+
+## Properties
+#### `GameID: int`
+`GameID` is a property of `Game` and holds a integer value which is the game ID.
+
+#### `ServerVersion: string`
+`ServerVersion` is a property of `Game` and holds a string value which is the game-servers version. Only accessible on Scripts.
+
+## Functions
+#### `GetService(string service)`
+`GetService` is a function which recieves 1 parameter with the value type of string. It is used to return any child which acts as a service. The `service` can be like Map or LocalStorage. Example:
+```lua
+local HttpService = Game:GetService("HttpService") -- Some services like HttpService can only be accessed by Serversided Scripts.
+```
+
+## Signals
+#### `OnGameClose`
+This signal is called right before the game exits. Example:
+```lua
+Game:Connect("OnGameClose", __SCRIPT__, "FunctionToBeCalledOnExit")
+
+function FunctionToBeCalledOnExit()
+    printl("Bye!")
+end
+```

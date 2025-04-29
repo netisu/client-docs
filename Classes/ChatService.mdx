@@ -1,0 +1,42 @@
+---
+title: 'ChatService'
+description: '`ChatService` is used to enable scripts to interact with chat'
+icon: 'messages'
+---
+
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+
+## Properties
+#### `ChatBubbleColor: Color`
+Specifies the chat bubble color.
+
+#### `ChatBubbleEnabled: bool`
+Specifies if the chat bubble is enabled or not.
+
+## Functions
+
+#### `Push(string message)`
+This function will write a message into chat box and it will be shown to all of the clients. This function is only available on server sided scripts. Example:
+```lua
+local ChatService = Game:GetService("ChatService")
+ChatService.Push("Hi! to all clients from server.")
+```
+
+#### `PushToLocalClient(string message)`
+This function can only be called by client sided scripts. The message will only be shown to the local player. Example:
+```lua
+local ChatService = Game:GetService("ChatService")
+ChatService.PushToLocalClient("Tip: Press spacebar to jump!")
+```
+
+## Signals
+#### `OnMessage`
+This signal is called when the server or the client recieves a newer message. An example:
+```lua
+local ChatService = Game:GetService("ChatService")
+ChatService.Connect("OnMessage", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(content) 
+    printl("Got a newer message: " .. content)
+end
+```

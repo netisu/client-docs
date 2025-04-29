@@ -1,0 +1,31 @@
+---
+title: 'HttpService'
+description: '`HttpService` is a class which is used to make http requests.'
+icon: 'globe'
+---
+<Warning>This class is yet to be worked on.</Warning>
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+<Warning>This class cannot be accessed by client sided scripts.</Warning>
+<Warning>Maximum 30 requests can be made in a mintue.</Warning>
+<Info>This class cannot allow to download any file into users computer.</Info>
+<Info>Users IP Address is never exposed since the server makes the request.</Info>
+
+## Functions
+#### `Request(string url, Http.Methods type, float timeout = 0.0)`
+This function makes a request. If timeout is 0 or 0.0 then timeout never takes place. An example:
+```lua
+local HttpService = Game:GetService("HttpService")
+HttpService.Request("url", Http.Methods.Get)
+HttpService:Connect("OnRequestCompleted", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(responseCode, headers, body)
+    printl(responseCode)
+end
+```
+
+## Signals
+#### `OnRequestCompleted`
+This signal is called when a pending HttpRequest returns a result.
+
+#### `OnRequestTimedOut`
+This signal is called when a pending HttpRequest timesout.

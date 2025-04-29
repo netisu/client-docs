@@ -1,0 +1,77 @@
+---
+title: 'WarpService'
+description: '`WarpService` is a service used for teleporting players between your games'
+icon: 'transporter'
+---
+<Warning>This class is not accessible on client-side.</Warning>
+<Warning>This class is planned to be added after a while.</Warning>
+<Warning>You can only teleport players to games made by you.</Warning>
+
+## Properties
+#### `UseSafetySetup: bool`
+Not Written
+
+## Functions
+#### `Teleport(int gameid, Player player)`
+The `Teleport` function teleports a player to a public server. If a server does not exist then one will be made. This only works for 1 player. An example:
+```lua
+local WarpService = Game:GetService("WarpService")
+local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
+if Player_Cubern ~= nil then 
+    WarpService:Teleport(123, Player_Cubern)
+end
+```
+
+#### `TeleportToPrivateServer(int gameid, Player player)`
+The `TeleportToPrivateServer` function teleports a player to a private game server. This only works for a single 1 player. Meaning a solo private server would be made. An example:
+```lua
+local WarpService = Game:GetService("WarpService")
+local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
+if Player_Cubern ~= nil then 
+    WarpService:TeleportToPrivateServer(123, Player_Cubern)
+end
+```
+
+#### `TeleportGroupOfPlayersToPrivateServer(int gameid, Array players)`
+The `TeleportGroupOfPlayersToPrivateServer` function teleports a group of players to a private game server. This will error if only a single player is present. An example:
+```lua
+local WarpService = Game:GetService("WarpService")
+local Players = Game:GetService("Players")
+local playersToTeleport = {
+    Players:GetPlayer("Cubern"),
+    Players:GetPlayer("Arexvy")
+}
+-- we do not need to worry if all players are nil or any however a soft warning will be produced
+WarpService:TeleportGroupOfPlayersToPrivateServer(123, playersToTeleport)
+```
+
+## Signals
+#### `OnWarpServiceFailure`
+The `OnWarpServiceFailure` signal is emitted whenever teleportation service faces a failure. This wont be emitted whenever a internal error is faced by the game-server. An example:
+```lua
+local WarpService = Game:GetService("WarpService")
+WarpService:Connect("OnWarpServiceFailure", __SCRIPT__, "ErrorFaced")
+local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
+WarpService:TeleportToPrivateServer(123, Player_Cubern)
+
+
+function ErrorFaced(message) 
+    printl(message) -- should output player is nil
+end
+```
+
+
+#### `OnInternalError`
+Called when game server throws a internal error. Example:
+```lua
+local WarpService = Game:GetService("WarpService")
+local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
+WarpService:TeleportToPrivateServer(123, Player_Cubern)
+DataStoreService:Connect("OnInternalError", __SCRIPT__, "VpsFailure")
+
+function VpsFailure(VPS_ERROR_RESPONSE_CODE, VPS_ERROR_ANY_DETAIL)
+    -- this will automatically be forwarded to developers
+    printl(VPS_ERROR_RESPONSE_CODE)
+    printl(VPS_ERROR_ANY_DETAIL) 
+end
+```

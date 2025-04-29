@@ -1,0 +1,54 @@
+---
+title: 'Players'
+description: '`Players` hold the connected clients'
+icon: 'users'
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+## Properties
+#### `PlayerCount: int`
+The `PlayerCount` holds a int value which has the total number of players in the game server
+
+#### `RespawnTime: int`
+The property holds a int value which is number of seconds to spawn player after players death. This is read only for client sided scripts and can be changed by server sided scripts.
+
+## Functions
+#### `GetPlayer(string username)`
+`GetPlayer` will return a `Player` type. An example:
+```lua
+local Players = Game:GetService("Players")
+local cubern_player = Players:GetPlayer("Cubern")
+cubern_player:Kick("Yoink!")
+-- Cubern currently doesnt support getting players like Players["Cubern"]
+```
+#### `GetLocalPlayer()`
+Returns localPlayer as a `Player` type. This function can only be called by client-sided scripts. An example:
+```lua
+local Players = Game:GetService("Players")
+local localPlayer = Players:GetLocalPlayer()
+printl(localPlayer.username)
+```
+
+## Signals
+#### `OnPlayerEntered`
+The signal is called when a new player joins the game. This is valid on both: client sided and server sided scripts. An example:
+```lua
+local Players = Game:GetService("Players")
+local ChatService = Game:GetService("ChatService")
+Players:Connect("OnPlayerEntered", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(Player)
+    ChatService:Push("Everybody! Welcome: " .. Player.username);
+end
+```
+
+#### `OnPlayerLeft`
+The signal is called when a player leaves the game. This is valid on both: client sided and server sided scripts. An example:
+```lua
+local Players = Game:GetService("Players")
+local ChatService = Game:GetService("ChatService")
+Players:Connect("OnPlayerLeft", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(Player)
+    ChatService:Push("Goodbye " .. Player.username .. "! We hope to see you again!");
+end
+```

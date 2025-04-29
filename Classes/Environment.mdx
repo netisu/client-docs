@@ -1,0 +1,28 @@
+---
+title: 'Environment'
+description: '`Environment` allows you to modify a variety lighting conditions in the game world'
+icon: "earth-americas"
+---
+<Warning>You cannot Instance this class with `Instance.new()`</Warning>
+<Warning>This class is yet to be worked on.</Warning>
+## Properties
+#### `Brightness: float`
+
+#### `AmbientLightColor: Color3`
+
+#### `FogDensity: float`
+
+#### `FogEnabled: bool`
+
+#### `FogHeightDensity: float`
+
+#### `GlowEnabled: bool`
+
+#### `GlowIntensity: float`
+
+## Functions
+#### `Default()`
+Makes the environment go to default lighting. An example:
+```lua
+Game:GetService("Environment"):Default()
+```

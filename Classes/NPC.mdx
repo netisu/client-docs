@@ -1,0 +1,74 @@
+---
+title: 'NPC'
+description: '`NPC` is a non-player-character that imitates a player and is able to be manipulated in Clua'
+icon: 'robot'
+---
+<Info>
+  This class inherits `ActiveInstance` which means that all properties, functions and signals from ActiveInstance can be used.
+</Info> 
+<Warning>This class is not completed.</Warning>
+## Properties
+#### `speed: float`
+Speed of NPC. 
+
+#### `health: int`
+Health of the npc.
+
+#### `DisplayOnTop: string`
+The text to display on top of the NPC
+
+#### `DisplayOnTopEnabled: bool`
+To display text on top of NPC or not.
+
+#### `SitAutomaticallyIfSeatInWay: bool`
+
+## Functions
+#### `MoveTo(Vector3 newLocation)`
+This function makes the NPC move to a newer location. An example:
+```lua
+Map.NPC:MoveTo(Vector3.new(5, 5, 5))
+```
+
+#### `Kill()`
+This function is used to kill the NPC. An example:
+```lua
+Map.NPC:Kill()
+```
+
+##### `Sit(Seat seat = null)`
+Makes the NPC sit at the place where it is standing or to the seat given in as a parameter (optional). An example:
+```lua
+Map.NPC:Sit()
+```
+
+##### `StandUp()`
+Makes the NPC standup at the place where it was sitting. An example:
+```lua
+Map.NPC:Sit()
+wait(4)
+Map.NPC:StandUp()
+```
+
+
+## Signals
+#### `OnDestinationReached`
+This signal is called when a NPC has finished moving to its destination. An example:
+```lua
+Map.NPC:Connect("OnDestinationReached", __SCRIPT__, "FunctionToCall")
+Map.NPC:MoveTo(Vector3.new(5, 5, 5))
+
+function FunctionToCall()
+    printl("NPC Reached!")
+end
+```
+
+#### `OnDeath`
+This signal is called when a NPC dies. An example:
+```lua
+Map.NPC:Connect("OnDeath", __SCRIPT__, "FunctionToCall")
+Map.NPC:Kill()
+
+function FunctionToCall()
+    printl("NPC died!")
+end
+```
