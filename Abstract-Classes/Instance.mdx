@@ -1,0 +1,83 @@
+---
+title: 'Instance'
+description: 'Instance'
+icon: 'cube'
+---
+<Warning>You cannot Instance this class with `Instance.new()`. Because this is an abstract class.</Warning>
+
+## Properties
+#### `name: string`
+Returns the name of the `Instance`
+
+## Functions
+#### `FindChild(string name)`
+Returns the child else returns null. An example:
+```lua
+local cube1 = Map.Cube.FindChild("Cube1")
+```
+
+#### `FindFirstChild(string name)`
+Returns the child with the name specified in the `name` parameter; however, if the child does not exist, then it'll return `Nil`. An example:
+```lua
+-- Anchors the child named "cube1" inside the "Cube" object which is located inside the game's Map object
+Map.Cube:FindFirstChild("cube1").anchored = true
+```
+
+
+#### `anchored: bool`
+Returns if `Instance` is anchored or not.
+
+#### `Destroy()`
+Destroys the `Instance`. An example:
+```lua
+Map.Cube:Destroy()
+```
+#### `IsA()`
+Returns the type of the object as a string.
+
+#### `new(string className)` (static)
+Create a new instance. An example:
+```lua
+local part = Instance.new("Part")
+part.name = "MyCube"
+part.shape = "Cube"
+part.SetParent(Map.Folder)
+```
+
+#### `SetAttribute(string attribute_name, object attribute_value)`
+This will set a custom assigned attribute. Which can be accessed by also other scripts. Please remember that this will overwrite any existing attributes!
+```lua
+Map.Cube.SetAttribute("IsThisMyFavourateCube", true)
+```
+#### `GetAttribute(string attribute_name)`
+This will get a custom assigned attribute. Which can be accessed by also other scripts.
+```lua
+printl(Map.Cube.GetAttribute("IsThisMyFavourateCube")) -- this will print true
+```
+
+#### `GetChildren()`
+Returns `Instance[]` (Instance array) with the children. An example:
+```lua
+local CubesChildren = Map.Cube.GetChildren()
+```
+
+## Signals
+#### `OnMouseEntered`
+This signal is called when a mouse hovers over the `Instance`. An example:
+```lua
+Map.Cube:Connect("OnMouseEntered", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall()
+    printl("Mouse entered!")
+end
+```
+
+#### `OnMouseExited`
+This signal is called when a mouse leaves over the `Instance`. An example:
+```lua
+Map.Cube:Connect("OnMouseExited", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall()
+    printl("Mouse left!")
+end
+```

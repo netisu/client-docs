@@ -1,0 +1,51 @@
+---
+title: 'ActiveInstance'
+description: 'ActiveInstance'
+icon: 'rocket'
+---
+<Info>
+  This class inherits `Instance` which means that all properties, functions and signals from Instance can be used.
+</Info> 
+<Warning>You cannot Instance this class with `Instance.new()`. Because this is an abstract class.</Warning>
+
+## Properties
+#### `position: Vector3`
+Returns the position of `Instance`
+
+#### `scale: Vector3`
+Returns the scale of `Instance`
+
+#### `rotation: Vector3`
+Returns the rotation of `Instance`
+
+## Functions 
+#### `LookAt(Vector3 to)`
+An example:
+```lua
+Map.Cube:LookAt(Map.Cube1.position)
+```
+
+## Signals
+#### `OnBodyEntered`
+This signal is called when a Body enters the `Instance` or touches it. An example:
+```lua
+Map.Cube:Connect("OnBodyEntered", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(Body)
+    if Body.IsA() == "Player" then
+        printl("Its a player!")
+    end
+end
+```
+
+#### `OnBodyExited`
+This signal is called when a Body leaves the `Instance` or stops touching it. An example:
+```lua
+Map.Cube:Connect("OnBodyExited", __SCRIPT__, "FunctionToCall")
+
+function FunctionToCall(Body)
+    if Body.IsA() == "Player" then
+        printl("Player! left")
+    end
+end
+```
