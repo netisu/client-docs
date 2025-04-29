@@ -1,0 +1,15 @@
+---
+title: 'Increasing performance'
+description: 'Learn to use better and efficient methods'
+icon: 'toolbox'
+---
+By default, cubern does its best to get more frames per second. Users can also consider lowering their graphics preset in the settings which can decrease visuals tho give more FPS.
+It is too the responsibility of the game developer to make sure that they use efficient methods to get the best performance. There are several tips on how one can make their game be efficient
+and give also lower-end devices better gameplay.
+
+### Talking about meshes
+If you use alot of meshes in you're game: it is not recommended to use the `let_engine_make_high_quality_collision` property. This should only be done for meshes which are optimized and have less vertices. This should be done for meshes 
+which are used in your games map like 5 or 10 times. When the workshop builds high-quality collisions: it can be very heavy to process and may eat alot of resources since the collisions would need to be calculated.
+
+### Talking about `Environment`
+Most of the time a player faces performance issues because of how slow the GPU is with processing the video output. For-example volumetric fog can be harder to be processed by old-gen GPUs. Other things like SSAO also play a big role. 

@@ -1,0 +1,36 @@
+---
+title: 'Changing Character'
+description: 'Learn how to change starter-character inside cubern!'
+icon: 'person'
+---
+## Getting Started
+To get started. For this tutorial we need a glb mesh which has the character. You can convert from `.obj` -> `.glb` with blender or export your model from blender as `.glb`. We then make use of workshops mesh importer plugin and then move the imported `MeshPart` to `ClientStorage`.
+
+## Telling cubern about the character
+For us to tell cubern about our custom character controller we will create a new local script (or you can make use of a existing local script). Lets go onto this 
+step by step. First let us access the character:
+```lua
+local ClientStorage = Game:GetService("ClientStorage")
+local CustomCharacter = ClientStorage["CustomCharacter"] -- whatever you have named your character
+```
+After we have declared our custom character as a variable we can go and register this character to tell cubern to use custom character instead of cuberns classic character.
+```lua
+local ClientStorage = Game:GetService("ClientStorage")
+local CustomCharacter = ClientStorage["CustomCharacter"] -- whatever you have named your character
+Game:GetService("Players"):SetDefaultCharacter(CustomCharacter)
+```
+The `SetDefaultCharacter` function will only take a `MeshPart` class. If you have made a character inside cuberns workshop then you can export it as a `.glb` and import it. And now we have 
+successfully registered our default character! **Keep in mind that the user will not spawn until the mesh does not get cached onto their client.**
+
+## Talking about Animations
+Cuberns workshop currently does not offer a built-in animation editor. So, you can make use of 3D software like blender and make some animations. Once you have made animations make sure you export them with your `.glb` file! 
+By default cubern will try to access animations named: `Walk`, `Jump` and `Idle`. However if your models animations are named differently. You can:
+```lua
+local Players = Game:GetService("Players")
+Players:SetDefaultCharacterAnimations("Walk1", "Jump1", "Idle45") 
+```
+and now cubern will try to access `MeshPart`s `Walk1` animation and use that instead of `Walk`. 
+
+### What if my MeshPart doesnt have any animation?
+If your MeshPart or custom character does not have animations then no animations will be used.
+

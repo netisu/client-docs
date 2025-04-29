@@ -1,0 +1,45 @@
+---
+title: 'Error Handling'
+description: 'Understanding how to detect and manage errors'
+icon: 'seal-exclamation'
+---
+### Soft errors vs Regular errors
+Soft errors are errors which would occur however the script would still continue its execution. Regular errors will stop the script from proceeding.
+
+### With `Connect`
+We are actively working to make error handling very easy. In functions like `Connect` or `ConnectEvent` clua will return nil or a string. If a error occurs: then it will return a string which will be the error message. 
+Let us see an example:
+```lua
+local Cube = Map.Cube
+local error = Cube:Connect("OnBodyEntered", __SCRIPT__, "ToCallFunc") -- the value of error will be nil however if we try to conenct again:
+error = Cube:Connect("OnBodyEntered", __SCRIPT__, "ToCallFunc") -- the value of error will be a string of: 'OnBodyEntered(Signal) is already connected to a function!'
+error = Cube:Connect("OnBodyEntered", __SCRIPT__, "AnotherFunction") -- the value of error will be a string as well. Clua does not support binding a single signal to multiple functions. However this is going to be allowed in near-future. It will return the same error: : 'OnBodyEntered(Signal) is already connected to a function!'
+-- Keep in mind that it will only give a error and will not distrupt already-connected connection!
+function ToCallFunc(body) 
+    printl(body.IsA())
+end
+```
+
+### Now lets see it step by step
+```lua
+local Cube = Map.Cube
+local error = Cube:Connect("OnBodyEntered", __SCRIPT__, "ToCallFunc")
+if error == nil then
+    printl("We had NO errors!")
+else 
+    printl("We have a error! " .. error)
+    -- lets carry a fix
+    Cube:BreakConnection("OnBodyEntered") -- if a signal doesnt exist then it will return a string of: 'No signal found.'
+    error = Cube:Connect("OnBodyEntered", __SCRIPT__, "ToCallFunc")
+    if error == nil then
+        printl("Successfully established!")
+    else
+        printl("Core engine error") -- report to developers immediately!
+    end
+end
+```
+
+### Why not use `pcall`?
+Unfortunately as of now the engine related functions do not support `pcall`. In future engine-related functions will slowly get support to work with `pcall`s.
+
+### Errors with other methods
