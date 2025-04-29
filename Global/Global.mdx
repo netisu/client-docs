@@ -1,0 +1,25 @@
+---
+title: 'Global'
+description: 'Check out all of the global variables and functions!'
+icon: 'globe-stand'
+---
+## Global Functions
+#### `wait(int time)`
+The `wait` function takes a parameter as a type of int. It is used to pause script for a desired amount of time (in seconds). An example:
+```lua
+printl("Lets start the countdown!")
+wait(5)
+printl("The countdown ended!")
+```
+#### `printl(string message)`
+The `printl` function is basically the `print` of clua. It is used for debugging. An example:
+```lua
+printl("Hello World!")
+```
+
+## Global Variables
+#### `__SCRIPT__`
+The `__SCRIPT__` variable is used in functions like `Connect`. It is used to return the name of the script. Example:
+```lua
+printl(__SCRIPT__) -- Will print LocalScriptName
+```
