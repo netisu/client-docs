@@ -1,16 +1,16 @@
 ---
 title: 'Replication'
-description: 'Learn how cubern handles replication from server to client.'
+description: 'Learn how netisu handles replication from server to client.'
 icon: 'arrow-down-up-lock'
 ---
-In this tutorial, you'll learn on how cubern handles replication in different scenarios. Replication means copying what the server does and pasting to the client. For example, whenever a Part is instanced in the Map, all of the authenticated clients would have a part in their map too! 
+In this tutorial, you'll learn on how netisu handles replication in different scenarios. Replication means copying what the server does and pasting to the client. For example, whenever a Part is instanced in the Map, all of the authenticated clients would have a part in their map too! 
 If you also parent something from ServerStorage to for example Map, the complete object would be replicated to all the other clients (this could be a folder too!). However, when you would parent an object inside ClientStorage to Map, the object would only be visible on the client it was performed on. 
 Tho, why? This is because the server changes are replicated **and not of client.**
 
 ### When an objects property is changed
-Whenever an objects property is changed, clua will tell the server core (only on server-side) to tell other clients to-do the same. Tho, what if one of the clients/players have not loaded the part or it just doesnt simply exist there? In that term cuberns client core will simply neglect the demand
+Whenever an objects property is changed, nlua will tell the server core (only on server-side) to tell other clients to-do the same. Tho, what if one of the clients/players have not loaded the part or it just doesnt simply exist there? In that term netisus client core will simply neglect the demand
 and will do nothing. However, not ALL the properties are replicated. Some properties which do-not exist on client-side are not replicated at all. For-example the `Part`s `color` property is replicated:
-```lua server.clua
+```lua server.nlua
 Map.Cube.color = Color3.Random() 
 ```
 here the color of the cube will be changed to a random a color. This color of the cube will also change on connected clients.
@@ -19,7 +19,7 @@ here the color of the cube will be changed to a random a color. This color of th
 To achieve the idea of doing replication manually, you'll be required to check out the `RemoteEventService` service. To save ya some time lets just dig-in with a small example. Let us say we want to let a connected client/user know about why this one cube: I just hate it.
 \
 On the server side we start off by requiring the service:
-```lua server.clua
+```lua server.nlua
 local RemoteEventService : RemoteEventService = Game:GetService("RemoteEventService") -- here we access the remote event service
 local error : string? = RemoteEventService.PushToClient("Arexvy", "TheEventName", "Dude, did you know why I am filled with hate for Cube5? That thing just keeps on being renamed to @Cube@5! Weird right? I guess its time to get rid of it. I think you should too!")
 -- the PushToClient will return a string of error (if any) else it would simply return nil
@@ -29,7 +29,7 @@ end
 ```
 
 On our client-side we must register this event:
-```lua client.clua
+```lua client.nlua
 local RemoteEventService : RemoteEventService = Game:GetService("RemoteEventService") -- here we access the remote event service
 RemoteEventService:ConnectEvent("TheEventName", "__SCRIPT__", "FunctionToCall")
 

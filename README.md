@@ -1,6 +1,6 @@
 ## Introduction
 
-This documentation makes use of [Mintlify](https://mintlify.com/). This documentation features the programming language "Clua" (Commonlua) which is basically lua and is built on top of MoonSharp. Check out the project at https://netisu.com
+This documentation makes use of [Mintlify](https://mintlify.com/). This documentation features the programming language "nlua" (Commonlua) which is basically lua and is built on top of MoonSharp. Check out the project at https://netisu.com
 
 ## Running locally
 

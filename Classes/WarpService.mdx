@@ -16,9 +16,9 @@ Not Written
 The `Teleport` function teleports a player to a public server. If a server does not exist then one will be made. This only works for 1 player. An example:
 ```lua
 local WarpService = Game:GetService("WarpService")
-local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
-if Player_Cubern ~= nil then 
-    WarpService:Teleport(123, Player_Cubern)
+local Player_netisu = Game:GetService("Players"):GetPlayer("netisu")
+if Player_netisu ~= nil then 
+    WarpService:Teleport(123, Player_netisu)
 end
 ```
 
@@ -26,9 +26,9 @@ end
 The `TeleportToPrivateServer` function teleports a player to a private game server. This only works for a single 1 player. Meaning a solo private server would be made. An example:
 ```lua
 local WarpService = Game:GetService("WarpService")
-local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
-if Player_Cubern ~= nil then 
-    WarpService:TeleportToPrivateServer(123, Player_Cubern)
+local Player_netisu = Game:GetService("Players"):GetPlayer("netisu")
+if Player_netisu ~= nil then 
+    WarpService:TeleportToPrivateServer(123, Player_netisu)
 end
 ```
 
@@ -38,7 +38,7 @@ The `TeleportGroupOfPlayersToPrivateServer` function teleports a group of player
 local WarpService = Game:GetService("WarpService")
 local Players = Game:GetService("Players")
 local playersToTeleport = {
-    Players:GetPlayer("Cubern"),
+    Players:GetPlayer("netisu"),
     Players:GetPlayer("Arexvy")
 }
 -- we do not need to worry if all players are nil or any however a soft warning will be produced
@@ -51,8 +51,8 @@ The `OnWarpServiceFailure` signal is emitted whenever teleportation service face
 ```lua
 local WarpService = Game:GetService("WarpService")
 WarpService:Connect("OnWarpServiceFailure", __SCRIPT__, "ErrorFaced")
-local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
-WarpService:TeleportToPrivateServer(123, Player_Cubern)
+local Player_netisu = Game:GetService("Players"):GetPlayer("netisu")
+WarpService:TeleportToPrivateServer(123, Player_netisu)
 
 
 function ErrorFaced(message) 
@@ -65,8 +65,8 @@ end
 Called when game server throws a internal error. Example:
 ```lua
 local WarpService = Game:GetService("WarpService")
-local Player_Cubern = Game:GetService("Players"):GetPlayer("Cubern")
-WarpService:TeleportToPrivateServer(123, Player_Cubern)
+local Player_netisu = Game:GetService("Players"):GetPlayer("netisu")
+WarpService:TeleportToPrivateServer(123, Player_netisu)
 DataStoreService:Connect("OnInternalError", __SCRIPT__, "VpsFailure")
 
 function VpsFailure(VPS_ERROR_RESPONSE_CODE, VPS_ERROR_ANY_DETAIL)

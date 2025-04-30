@@ -10,7 +10,7 @@ icon: 'circle-nodes'
 This function is used to send data from server to client. You can send unlimited parameters after desired first 2 parameters. An example:
 ```lua
 local RemoteEventService = Game:GetService("RemoteEventService")
-local error = RemoteEventService:PushToClient("Cubern", "Event1", "hello!", Map.Cube, 22233)
+local error = RemoteEventService:PushToClient("netisu", "Event1", "hello!", Map.Cube, 22233)
 if error == nil then
     printl("It is a success!")
 else
@@ -35,7 +35,7 @@ end
 <Info>This function can only be called by the client.</Info>
 This function is used by the client to send a event to the server. An example:
 <CodeGroup>
-```lua client.clua
+```lua client.nlua
 local RemoteEventService = Game:GetService("RemoteEventService")
 local error = RemoteEventService:SendEventToServer("Event1", "hello!", 222, Map.Cube)
 if error == nil then
@@ -44,7 +44,7 @@ else
     printl("Err!! " .. error)
 end
 ```
-```lua server.clua
+```lua server.nlua
 local RemoteEventService = Game:GetService("RemoteEventService")
 RemoteEventService:ConnectEvent("Event1", __SCRIPT__, "FunctionCall") -- since we had registered the event by name of "Event1" on client we will use "Event1" as first paramter
 function FunctionToCall(data, username, statement_by_client, numberSent, cubeByClient)

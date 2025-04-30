@@ -1,6 +1,6 @@
 ---
 title: 'Learning the Syntax'
-description: 'Learn the syntax of clua'
+description: 'Learn the syntax of nlua'
 icon: 'seal-question'
 ---
 
@@ -15,7 +15,7 @@ In this tutorial we will be covering basics of the language and its syntax for-e
 ## Diving into the syntax
 ### Variables
 Variables are used like containers which store a value. These variables can be set and also be read in the [source-code](https://en.wikipedia.org/wiki/Source_code).
-There are 2 ways to define variables in clua. First we can make use of the keyword `local` which tells the [interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing)) to create a variable which is then followed by the name of the variable with:
+There are 2 ways to define variables in nlua. First we can make use of the keyword `local` which tells the [interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing)) to create a variable which is then followed by the name of the variable with:
 ```lua
 local MyVariable = 2
 ```
@@ -28,26 +28,26 @@ We can also declare variables without the use of `local`. Like:
 ```lua
 MyVariable = "Yay!"
 ```
-Now what clua will do here is that it will check if `MyVariable` exists then it will try to update its value to "Yay!" and if it doesnt exist then it will create a newer variable called `MyVariable` which will hold the value `Yay!`.
+Now what nlua will do here is that it will check if `MyVariable` exists then it will try to update its value to "Yay!" and if it doesnt exist then it will create a newer variable called `MyVariable` which will hold the value `Yay!`.
 
 ### Learning about comments
 
-Comments in Clua are lines of text in your code that the interpreter ignores during execution. They are useful for adding explanations, notes, or temporarily disabling parts of your code. Clua supports both single-line and multi-line comments.
+Comments in nlua are lines of text in your code that the interpreter ignores during execution. They are useful for adding explanations, notes, or temporarily disabling parts of your code. nlua supports both single-line and multi-line comments.
 
 #### Single-Line Comments
 
 To create a single-line comment, you use two hyphens (`--`). Everything following the `--` on that line will be treated as a comment:
 
 ```lua
--- This is a single-line comment in Clua
+-- This is a single-line comment in nlua
 local MyVariable = 10  -- You can also add comments at the end of a line
 ```
 
-In the example above, the comment `-- This is a single-line comment in Clua` is ignored by the interpreter. The line `local MyVariable = 10` is executed normally, and the comment following it is ignored.
+In the example above, the comment `-- This is a single-line comment in nlua` is ignored by the interpreter. The line `local MyVariable = 10` is executed normally, and the comment following it is ignored.
 
 #### Multi-Line Comments
 
-For comments that span multiple lines, Clua allows the use of `--[[` to open the comment and `]]` to close it. Everything between these markers is treated as a comment:
+For comments that span multiple lines, nlua allows the use of `--[[` to open the comment and `]]` to close it. Everything between these markers is treated as a comment:
 
 ```lua
 --[[
@@ -61,9 +61,9 @@ local MyVariable = 10  -- This code will run normally
 
 Multi-line comments are particularly useful for temporarily disabling large blocks of code or for adding detailed explanations.
 
-Comments are a powerful tool for making your Clua code more understandable and maintainable. By using comments, you can explain your logic, leave notes for yourself or others, and manage your code more effectively.
+Comments are a powerful tool for making your nlua code more understandable and maintainable. By using comments, you can explain your logic, leave notes for yourself or others, and manage your code more effectively.
 ### If statements
-In Clua, the `if` statement is used to execute a block of code based on a condition. The basic syntax of an `if` statement is:
+In nlua, the `if` statement is used to execute a block of code based on a condition. The basic syntax of an `if` statement is:
 
 ```lua
 if <condition> then
@@ -115,7 +115,7 @@ In this case, the condition `number > 10` is false, so the `elseif` condition `n
 
 #### Nesting If Statements
 
-Clua also allows you to nest `if` statements for more complex conditions:
+nlua also allows you to nest `if` statements for more complex conditions:
 
 ```lua
 local number = 8
@@ -129,10 +129,10 @@ end
 
 Here, the outer `if` checks if `number` is greater than 5. Since it's true, the nested `if` checks if `number` is less than 10. Both conditions are true, so "Number is between 6 and 9" is printed.
 
-This section introduces the concept of `if` statements, explains the syntax, and provides examples to illustrate how they work in Clua.
+This section introduces the concept of `if` statements, explains the syntax, and provides examples to illustrate how they work in nlua.
 
 ### Loops 
-Loops in Clua allow you to execute a block of code multiple times. They are useful for tasks that require repetition, such as iterating over a collection or performing an action a set number of times. Clua supports `for`, `while`, and `repeat-until` loops.
+Loops in nlua allow you to execute a block of code multiple times. They are useful for tasks that require repetition, such as iterating over a collection or performing an action a set number of times. nlua supports `for`, `while`, and `repeat-until` loops.
 
 #### For Loops
 A `for` loop is commonly used when you know in advance how many times you want to execute a block of code.
@@ -202,7 +202,7 @@ until i > 5
 
 In this example, the loop runs until `i` is greater than 5, printing "Repeat-Until Loop Iteration: 1" to "Repeat-Until Loop Iteration: 5".
 
-Loops are essential for performing repetitive tasks in Clua. By using `for`, `while`, and `repeat-until` loops, you can create efficient, readable code that handles a variety of repetitive tasks.
+Loops are essential for performing repetitive tasks in nlua. By using `for`, `while`, and `repeat-until` loops, you can create efficient, readable code that handles a variety of repetitive tasks.
 ### Functions
 
 ### Signals
@@ -212,8 +212,8 @@ Loops are essential for performing repetitive tasks in Clua. By using `for`, `wh
 ### Global variables
 
 ## Diving into common ways of doing
-#### Accessing objects with clua
-It is very easy to acces objects in clua. Like:
+#### Accessing objects with nlua
+It is very easy to acces objects in nlua. Like:
 ```lua
 local Cube = Map.Cube
 ```

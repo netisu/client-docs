@@ -15,10 +15,10 @@ printl(GlobalState.Seek("MyName"))
 
 #### `SeekFunction(ScriptName, FunctionName)`
 The `SeekFunction` takes 2 variables which of both need to be strings. The function is used to run a function from 1 script to another. Here is an example!
-```lua script1.clua
+```lua script1.nlua
 GlobalState.SeekFunction("script2", "sayHello")
 ```
-```lua script2.clua
+```lua script2.nlua
 function sayHello()
     printl("Hello!")
 end
@@ -26,13 +26,13 @@ end
 
 #### `Push(VariableName, VariableValue, Overwrite = true)`
 The `Push` functions takes 2 variables in which `VariableName` must be a string and `VariableValue` can be of any. It also takes a 3rd optional variable which must be a boolean! The function is used to create/update a global variable. An example can be:
-```lua script1.clua
+```lua script1.nlua
 GlobalState.Push("MyName", "Arexvy")
 wait(2)
 GlobalState.Push("MyName", 2) -- here we overwrite the value of previously declared variable "MyName" to a integer with value of 2
 ```
 
-```lua script2.clua
+```lua script2.nlua
 printl(GlobalState.Seek("MyName")) -- will print Arexvy
 ```
 
