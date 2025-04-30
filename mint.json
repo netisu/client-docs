@@ -21,7 +21,7 @@
     "style": "gradient"
   },
   "background": {
-    "style": "windows"
+    "style": "grid"
   },
   "anchors": [
       {
