@@ -25,10 +25,15 @@
   },
   "anchors": [
       {
-          "name": "Our Discord Server",
+          "name": "Community",
           "icon": "discord",
           "url": "https://discord.gg/Zec49GD6ps"
-      }
+      },
+      {
+        "name": "Blog",
+        "icon": "newspaper",
+        "url": "https://blog.netisu.com"
+    }
   ],
   "topbarLinks": [
     {
