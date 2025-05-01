@@ -8,7 +8,7 @@ If you also parent something from ServerStorage to for example Map, the complete
 Tho, why? This is because the server changes are replicated **and not of client.**
 
 ### When an objects property is changed
-Whenever an objects property is changed, nlua will tell the server core (only on server-side) to tell other clients to-do the same. Tho, what if one of the clients/players have not loaded the part or it just doesnt simply exist there? In that term netisus client core will simply neglect the demand
+Whenever an objects property is changed, nlua will tell the server core (only on server-side) to tell other clients to-do the same. Tho, what if one of the clients/players have not loaded the part or it just doesnt simply exist there? In that term netisu's client core will simply neglect the demand
 and will do nothing. However, not ALL the properties are replicated. Some properties which do-not exist on client-side are not replicated at all. For-example the `Part`s `color` property is replicated:
 ```lua server.nlua
 Map.Cube.color = Color3.Random() 
